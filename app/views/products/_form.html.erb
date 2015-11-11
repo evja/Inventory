@@ -1,0 +1,17 @@
+
+  <div class="form"><%= bootstrap_form_for @product do |p| %>
+
+    <%= p.text_field :name %>
+
+    <%= p.text_field :size %>
+
+    <%= p.text_field :price, prepend: "$" %>
+
+    <%= p.text_field :quantity %>
+
+    <%= p.submit %>
+    <%= link_to 'Bak', root_path, class: "btn btn-default" %>
+
+    <% end %>
+  </div>
+

@@ -1,0 +1,27 @@
+<h1>Products</h1>
+
+<table border="1">
+<th scope="col" class="text-center" width="100px">Name</th>
+<th scope="col" class="text-center" width="100px">Size</th>
+<th scope="col" class="text-center" width="100px">Price</th>
+<th scope="col" class="text-center" width="100px">Quantity</th>
+<% @products.each do |p| %>
+  <tr>
+    <td scope="row" class="text-center">
+      <%= link_to p.name, product_path(p) %>
+    </td scope="row">
+    <td class="size text-center">
+      <%= p.size %>
+    </td>
+    <td class="price text-center">
+      <%= number_to_currency(p.price) %>
+    </td>
+    <td class="qty text-center">
+      <%= p.quantity %>
+    </td>
+  </tr>
+<% end %>
+
+</table>
+
+<h3>Total: <%= total_cost(@products) %></h3>
