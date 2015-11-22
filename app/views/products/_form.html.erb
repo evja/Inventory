@@ -1,17 +1,22 @@
 
-  <div class="form"><%= bootstrap_form_for @product do |p| %>
+  <div class="form"><%= bootstrap_form_for [@admin, @product] do |p| %>
 
-    <%= p.text_field :name %>
-
-    <%= p.text_field :size %>
+    <%= p.text_field :name, autofocus: true %>
 
     <%= p.text_field :price, prepend: "$" %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= p.text_field :size %>
+      </div>
+      <div class="col-md-6">
+        <%= p.text_field :quantity %>
+      </div>
+    </div>
+    <%= p.text_area :description %>
 
-    <%= p.text_field :quantity %>
+    <%= p.submit class: "btn btn-info"%>
 
-    <%= p.submit %>
-    <%= link_to 'Bak', root_path, class: "btn btn-default" %>
-
+    <%= link_to '<- Back', root_path, class: "btn btn-default" %>
     <% end %>
   </div>
 

@@ -1,0 +1,18 @@
+<div class="row">
+<%= link_to 'Back', root_path, class: "btn btn-default"  %>
+   <a class="btn btn-info" href="mailto:evjay.a@gmail.com" target="_blank">Email Evan <span class="glyphicon glyphicon-send"></span></a>
+</div>
+<h1>Settings</h1>
+<hr>
+<div>
+  <h5>Import Products</h3>
+  <%= form_tag import_admin_products_path(current_admin), multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import", class: "btn btn-success btn-sm" %>
+  <% end %>
+</div>
+<br>
+
+
+
+

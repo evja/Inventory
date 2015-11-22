@@ -5,3 +5,35 @@
 .btn {
   margin: 0px 5px;
 }
+
+#description {
+  padding: 0;
+  border-radius: 50%;
+}
+
+th {
+  font-size: 24px;
+
+  td {
+    font-size: 16px;
+    margin-left: 20px;
+  }
+}
+
+.tooltip-inner {
+  font-size: 18px;
+}
+
+.pretty th .current {
+  padding-right:12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.pretty th .asc {
+  background-image: url(/images/up.png);
+}
+
+.pretty th .desc {
+  background-image: url(/images/dwn.png);
+}

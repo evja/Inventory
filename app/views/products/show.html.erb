@@ -1,9 +1,11 @@
 <h1><%= @product.name %></h1>
 
-<h2>Price: <%= @product.price %></h2>
+<h2>Price: <%= number_to_currency(@product.price) %></h2>
 <h2>QTY: <%= @product.quantity %></h2>
 <h2>Size: <%= @product.size %></h2>
-<%= link_to 'Edit', edit_product_path(@product), class: "btn btn-default" %>
-<%= link_to 'Delete', product_path(@product), class: "btn btn-default", method: :delete%>
+<h2>Description: <%= @product.description %></h2>
+<%= link_to 'Back', admin_products_path(@admin), class: "btn btn-default" %>
+<%= link_to 'Edit', edit_admin_product_path(@admin, @product), class: "btn btn-default" %>
+<%= link_to 'Delete', admin_product_path(@admin, @product), class: "btn btn-default", method: :delete, data: {:confirm => "Are you sure you want to delete #{@product.name}"}%>
 
 

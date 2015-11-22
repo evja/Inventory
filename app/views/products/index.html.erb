@@ -1,27 +1,38 @@
-<h1>Products</h1>
+<h1><%=link_to 'Products', admin_products_path(@admin) %></h1>
+<%= link_to 'Add Product', new_admin_product_path(current_admin), class: "btn btn-success" %>
+<hr>
+<h2>Grand Total: <%= number_to_currency(total_cost(current_admin.products)) %></h2>
 
-<table border="1">
-<th scope="col" class="text-center" width="100px">Name</th>
-<th scope="col" class="text-center" width="100px">Size</th>
-<th scope="col" class="text-center" width="100px">Price</th>
-<th scope="col" class="text-center" width="100px">Quantity</th>
-<% @products.each do |p| %>
-  <tr>
-    <td scope="row" class="text-center">
-      <%= link_to p.name, product_path(p) %>
-    </td scope="row">
-    <td class="size text-center">
-      <%= p.size %>
-    </td>
-    <td class="price text-center">
-      <%= number_to_currency(p.price) %>
-    </td>
-    <td class="qty text-center">
-      <%= p.quantity %>
-    </td>
-  </tr>
-<% end %>
+<div class="table-responsive">
+  <table class="table pretty" border="1">
+  <th scope="col" class="text-center totip" width="100px" data-toggle="tooltip" data-placement="top" title="Click to sort A-Z click again to sort Z-A"><%= sortable "name" %></th>
+  <th scope="col" class="text-center" width="100px">Size</th>
+  <th scope="col" class="text-center totip" width="100px" data-toggle="tooltip" data-placement="top" title="Click to sort Price High to Low and Low to High"><%= sortable "price" %></th>
+  <th scope="col" class="text-center" width="100px">Quantity</th>
+  <% @products.each do |p| %>
+    <tr>
+      <td scope="row">
+      <span tabindex="0" class="glyphicon glyphicon-question-sign" data-toggle="popover" data-trigger="focus" data-placement="bottom" title="<%= p.name %> Information" data-content="<%= any_information(p) %>"></span>
+        <%= link_to p.name, admin_product_path(current_admin, p)%>
+      </td scope="row">
+      <td class="size text-center">
+        <%= p.size %>
+      </td>
+      <td class="price text-center">
+        <%= number_to_currency(p.price) %>
+      </td>
+      <td class="qty text-center">
+        <%= p.quantity %>
+      </td>
+    </tr>
+  <% end %>
 
-</table>
+  </table>
+</div>
+<h2> Page Total: <%= number_to_currency(total_cost(@products)) %></h2>
+<div class="text-center">
+  <%= will_paginate @products %>
+</div>
+<br>
 
-<h3>Total: <%= total_cost(@products) %></h3>
+
