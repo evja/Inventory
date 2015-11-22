@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
   end
 
   def import
-    if Product.import(params[:file], current_admin)
+    if Product.import(params[:file], @admin)
       redirect_to root_url, notice: "Products imported."
     else
       flash[:notice] = "Oops something went wrong with the download"

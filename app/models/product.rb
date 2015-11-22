@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  validates :name, :admin_id, :size, :price, presence: true
+  validates :name, :admin_id, :price, presence: true
 
   # default_scope -> { order(name: :asc) }
 
@@ -12,9 +12,8 @@ class Product < ActiveRecord::Base
   end
 
   def self.import(file, user)
-    if user && file
+    if file && user
       CSV.foreach(file.path, headers: true) do |row|
-
 
         product_hash = row.to_hash
         product = user.products.where(id: product_hash["id"])
@@ -25,6 +24,7 @@ class Product < ActiveRecord::Base
           user.products.create!(product_hash)
         end # end if !product.nil?
       end # end CSV.foreach
+      return true
     else
       return false
     end
