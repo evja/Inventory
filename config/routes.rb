@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   root 'products#index'
   devise_for :admins
 
-  config.sign_out_via = :delete
-
   resources :admins do
     resources :products do
       collection { post :import }
