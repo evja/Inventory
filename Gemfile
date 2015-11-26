@@ -30,6 +30,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'devise'
 gem 'heroku'
+gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -51,7 +52,6 @@ group :production do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'pg'
-  gem 'rails_12factor', '0.0.2'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 end
