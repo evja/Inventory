@@ -4,7 +4,7 @@
 <h2>Grand Total: <%= number_to_currency(total_cost(current_admin.products)) %></h2>
 
 <div class="table-responsive">
-  <table border="1">
+  <table class="pretty" border="1">
   <th scope="col" class="text-center totip" width="100px" data-toggle="tooltip" data-placement="top" title="Click to sort A-Z click again to sort Z-A"><%= sortable "name" %></th>
   <th scope="col" class="text-center" width="100px">Size</th>
   <th scope="col" class="text-center totip" width="100px" data-toggle="tooltip" data-placement="top" title="Click to sort Price High to Low and Low to High"><%= sortable "price" %></th>
