@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'products#index'
+  root 'static_pages#settings'
   devise_for :admins
 
   resources :admins do
@@ -8,9 +8,6 @@ Rails.application.routes.draw do
       collection { post :import }
     end
   end
-  get '/settings', to: 'static_pages#settings', as: :settings
-
-
 
   # get 'products/index'
 

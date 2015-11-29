@@ -4,6 +4,8 @@
 </div>
 <h1>Settings</h1>
 <hr>
+
+<%if current_admin %>
 <div>
   <h5>Import Products</h3>
   <%= form_tag import_admin_products_path(current_admin), multipart: true do %>
@@ -11,6 +13,7 @@
     <%= submit_tag "Import", class: "btn btn-success btn-sm" %>
   <% end %>
 </div>
+<% end %>
 <br>
 
 

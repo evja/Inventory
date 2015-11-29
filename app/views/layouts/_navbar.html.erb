@@ -22,9 +22,13 @@
         <% end %>
       <% end %>
 
+
+
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Home Page', root_path, class: "navbar-brand" %></li>
-        <li><%= link_to 'Settings', settings_path, class: "navbar-brand" %></li>
+      <% if current_admin %>
+        <li><%= link_to 'Home Page', admin_products_path(current_admin), class: "navbar-brand" %></li>
+      <% end %>
+        <li><%= link_to 'Settings', root_path, class: "navbar-brand" %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
